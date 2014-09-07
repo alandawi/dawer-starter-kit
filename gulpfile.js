@@ -27,7 +27,7 @@ gulp.task('less', function() {
     gulp.src('css/less/*.less') // get all files
       .pipe(less()) // compile less
       .pipe(gulp.dest('css')) // files destination
-      .pipe(concat('style.css'))  // make one file
+      .pipe(concat('styles.css'))  // make one file
         .pipe(rename({suffix: '.min'})) // rename final file
         .pipe(minifyCSS()) // minify CSS
         .pipe(gulp.dest('css')); // file destination
