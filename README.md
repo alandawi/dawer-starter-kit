@@ -26,7 +26,7 @@ $ gulp
 
 - CSS Autoprefixing
 - Automatically minify css files
-- Automatically compile Less
+- Automatically compile Sass
 - Automatically uglify script files
 - Watches for changes
 - Generates an optimized build
@@ -37,12 +37,13 @@ A sample project structure would be:
 
 ```
 |-- css
-|  |-- less
-|  |  |-- helpers.less
-|  |  |-- main.less
-|  |  |-- variables.less
+|  |-- scss
+|  |  |-- functions.scss
+|  |  |-- helpers.scss
+|  |  |-- screen.scss
 |-- js
 |  |-- build
+      |-- main.min.js
 |  |-- vendor
 |  |  |-- jquery-1.11.1.min.js
 |  |  |-- modernizr-2.8.3.min.js

@@ -3,7 +3,7 @@ var gulp = require('gulp');
 
 // Include Plugins
 var path = require('path');
-var less = require('gulp-less');
+var sass = require('gulp-sass');
 var watch = require("gulp-watch");
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -22,15 +22,12 @@ gulp.task('scripts', function() {
       .pipe(gulp.dest('js/build')); // file destination
 });
 
-// Compile CSS from Less files
-gulp.task('less', function() {
-    gulp.src('css/less/*.less') // get all files
-      .pipe(less()) // compile less
-      .pipe(gulp.dest('css')) // files destination
-      .pipe(concat('styles.css'))  // make one file
-        .pipe(rename({suffix: '.min'})) // rename final file
-        .pipe(minifyCSS()) // minify CSS
-        .pipe(gulp.dest('css')); // file destination
+// Compile CSS from SCSS Files
+gulp.task('sass', function () {
+  gulp.src('css/scss/*.scss') // get all files
+    .pipe(sass()) // compile sass
+    .pipe(minifyCSS()) // minify CSS
+    .pipe(gulp.dest('css')); // files destination
 });
 
 // Watch for changes in files
@@ -38,9 +35,9 @@ gulp.task('watch', function() {
   // Watch .js files
   gulp.watch('js/*.js', ['scripts']);
 
-  // Watch .less files
-  gulp.watch('css/less/*.less', ['less']);
+  // Watch .scss files
+  gulp.watch('css/scss/*.scss', ['sass']);
 });
 
 // Default Task
-gulp.task('default', ['scripts', 'less', 'watch']);
+gulp.task('default', ['scripts', 'sass', 'watch']);

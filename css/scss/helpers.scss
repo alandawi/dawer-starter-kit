@@ -40,3 +40,9 @@
 .clearfix:after {
     clear: both;
 }
+
+.hidetext {
+    text-indent: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}

@@ -1,0 +1,116 @@
+/****************************************** 
+********************* VARIABLES 
+*******************************************/
+
+$color-primary: #8bf5ff;
+$color-secondary: #000000;
+
+/****************************************** 
+********************* MIXINS 
+*******************************************/
+
+/**
+ * @example
+ *   .selector {
+ *     @include border-radius(20px 10px);
+ *   }
+ */
+@mixin border-radius ($values) {
+	-webkit-border-radius: $values; // iOS Safari 3.2, Android 2.1
+	        border-radius: $values;
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include ellipsis(50%);
+ *   }
+ */
+@mixin ellipsis ($width: 100%) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include calc(width, "600px - 2em");
+ *   }
+ */
+@mixin calc ($property, $expression) {
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include opacity(0.3);
+ *   }
+ */
+@mixin opacity ($value: 1) {
+	opacity: $value;
+	filter: alpha(opacity=$value * 100);
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include transform(rotate(1deg));
+ *   }
+ */
+@mixin transform ($values) {
+	-webkit-transform: $values; // Chrome, Safari, iOS Safari, Android Stock
+	    -ms-transform: $values; // IE9
+	        transform: $values;
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include transition(background 0.3s ease-in);
+ *   }
+ */
+@mixin transition ($values...) {
+	-webkit-transition: $values;
+	        transition: $values;
+}
+
+
+/**
+ * @example
+ *   .selector {
+ *     @include animation(jump 1s ease-out);
+ *   }
+ */
+
+@mixin animation ($values) {
+	-webkit-animation: $values;
+	        animation: $values;
+}
+
+
+/*
+ * @example
+ *    @include keyframes(jump) {
+ *      from { top: 0; }
+ *      to { top: -10px; }
+ *   }
+ */
+@mixin keyframes ($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
