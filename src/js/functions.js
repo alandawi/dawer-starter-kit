@@ -10,5 +10,5 @@
 
 	/* Global Init */
 	function globalInit() {
-		console.log("all initialized");
+		console.log('all initialized');
 	}

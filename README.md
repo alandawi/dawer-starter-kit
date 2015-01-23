@@ -24,36 +24,39 @@ $ gulp
 
 ## Features
 
-- CSS Autoprefixing
-- Automatically minify css files
-- Automatically compile Sass
-- Automatically uglify script files
-- Watches for changes
-- Generates an optimized build
+- CSS Autoprefixing.
+- Watches for changes.
+- Automatically compile SASS.
+- Annotated Gulpfile.js for extending.
+- Includes jQuery CDN and relative fallback.
+- Encourages one-file CSS/JS in the view (HTML) for performance.
+- Built-in build script for auto-minification of CSS and JavaScript files for production.
+
 
 ## Structure
 
 A sample project structure would be:
 
-```
-|-- css
-|  |-- scss
-|  |  |-- functions.scss
-|  |  |-- helpers.scss
-|  |  |-- screen.scss
-|-- js
-|  |-- build
-      |-- main.min.js
-|  |-- vendor
-|  |  |-- jquery-1.11.1.min.js
-|  |  |-- modernizr-2.8.3.min.js
-|  |-- functions.js
-|  |-- main.js
-|-- node_modules
-|-- gulpfile.js
-|-- package.json
-|-- index.html
-```
+````
+├── www
+│   ├── css
+│   ├── js
+│   ├── img
+│   └── index.html
+├── src
+│   ├── js
+│   │   └── functions.js
+│   │   └── main.js
+│   └── scss
+│       ├── mixins.scss
+│       ├── responsive.scss
+│       └── style.scss
+├── node_modules 
+├── package.json 
+├── gulpfile.js
+├── README.md
+└── .jshintrc
+````
 
 ## License
 Copyright (c) 2014 Alan Gabriel Dawidowicz 
